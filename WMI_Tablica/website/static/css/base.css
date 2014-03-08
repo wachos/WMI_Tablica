@@ -1,0 +1,20 @@
+body > .container {
+    margin-top: 81px;
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        width: 213px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 263px;
+    }
+}
+
+.navbar-right span {
+    color: blue;
+    margin-right: 5px;
+}
