@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block "left_menu" %}
+{% endblock %}
+
+{% block "content" %}
+<h2>Nowe ogłoszenie</h2>
+<div class="input-append date" id="dp3" data-date="" data-date-format="dd-mm-yyyy">
+  <span class="input-group-addon">Data publikacji</span>
+  <input class="span2" size="16" type="text" value="">
+</div>
+<div class="input-group">
+  <span class="input-group-addon">Tytuł</span>
+  <input type="text" class="form-control" placeholder="Tytuł">
+</div>
+<div class="input-group input-group-lg" style="">
+  <span class="input-group-addon">Treść</span>
+  <textarea class="form-control" cols="5" rows="10" style="height: auto;" id="MessageBox"></textarea>
+</div>
+{% endblock %}

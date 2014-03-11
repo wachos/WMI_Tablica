@@ -18,3 +18,33 @@ body > .container {
     color: blue;
     margin-right: 5px;
 }
+
+
+.ad-text .thumbnail {
+    display: inline-block;
+    float: right;
+    margin-bottom: 0;
+}
+
+.panel-footer {
+    height: 60px;
+}
+
+.panel-footer .ad-date {
+    display: inline-block;
+}
+
+.base-inputs .input-group-addon {
+    width: 85px;
+}
+
+.contact-inputs .input-group-addon {
+    width: 128px;
+}
+
+.date .input-group-addon {
+    width: 120px;
+    display: inline-block;
+}
+
+

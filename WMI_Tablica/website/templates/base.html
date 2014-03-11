@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Fixed Top Navbar Example for Bootstrap</title>
+    <title>Ogłoszenia WMI</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/bootstrap/css/datepicker3.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../static/css/base.css" rel="stylesheet">
@@ -36,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Tablica WMI</a>
+          <a class="navbar-brand" href="/">Tablica WMI</a>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Szukaj">
@@ -49,7 +50,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Jan Kowalski</a>
               <ul class="dropdown-menu">
-                  <li><a href="#">Edycja danych</a></li>
+                  <li><a href="/edit_personal_data">Edycja danych</a></li>
                   <li><a href="#">Przypomnij hasło</a></li>
                   <li><a href="#">Zmiana hasła</a></li>
                   <li class="divider"></li>
@@ -59,11 +60,11 @@
             <li class="dropdown">
               <a href="#about" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span>Moje ogłoszenia</a>
               <ul class="dropdown-menu">
-                  <li><a href="#">Nowe</a></li>
-                  <li><a href="#">Opublikowane</a></li>
+                  <li><a href="/new_ad">Nowe</a></li>
+                  <li><a href="/published_ads">Opublikowane</a></li>
               </ul>
             </li>
-            <li><a href="#watching"><span class="glyphicon glyphicon-eye-open"></span>Obserwowane ogłoszenia</a></li>
+            <li><a href="/watching_ads"><span class="glyphicon glyphicon-eye-open"></span>Obserwowane ogłoszenia</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -73,45 +74,19 @@
       <div class="row">
           <div class="col-sm-3">
             <div class="sidebar affix">
-              <ul class="list-group">
-                  <li class="list-group-item">
-                    <a href="#">Kategoria1</a>
-                  </li>
-                  <li class="list-group-item"><a href="#">Kategoria2</a></li>
-                  <li class="list-group-item"><a href="#">Kategoria3</a></li>
-              </ul>
+              <div class="list-group">
+                  {% block "left_menu" %}
+                      <a href="#" class="list-group-item">Kategoria1<span class="badge">24</span></a>
+                      <a href="#" class="list-group-item">Kategoria2<span class="badge">1</span></a>
+                      <a href="#" class="list-group-item">Kategoria3<span class="badge">5</span></a>
+                  {% endblock %}
+              </div>
             </div>
           </div>
           <div class="col-sm-9">
               <!-- Main component for a primary marketing message or call to action -->
-              <div class="jumbotron">
-                <h1>Navbar example</h1>
-                <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                <p>To see the difference between static and fixed top navbars, just scroll.</p>
-                <p>
-                  <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-              </div>
-
-              <div class="jumbotron">
-                <h1>Navbar example</h1>
-                <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                <p>To see the difference between static and fixed top navbars, just scroll.</p>
-                <p>
-                  <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-              </div>
-
-              <div class="jumbotron">
-                <h1>Navbar example</h1>
-                <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                <p>To see the difference between static and fixed top navbars, just scroll.</p>
-                <p>
-                  <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-              </div>
-
-
+              {% block "content" %}
+              {% endblock %}
           </div>
       </div>
     </div> <!-- /container -->
@@ -121,5 +96,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap-datepicker.js"></script>
+    <script src="../static/js/tinymce/tinymce.min.js"></script>
   </body>
 </html>

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+
+{% for ad in ads_list %}
+    {{ad|safe}}
+{% endfor %}
+
+{% endblock %}

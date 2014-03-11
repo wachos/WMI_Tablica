@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block "left_menu" %}
+    <a href="#" class="list-group-item">Dane podstawowe</a>
+    <a href="#" class="list-group-item">Dane kontaktowe</a>
+{% endblock %}
+
+{% block "content" %}
+    <div class="base-inputs">
+        <h2>Dane podstawowe</h2>
+        <div class="input-group">
+          <span class="input-group-addon">Imię</span>
+          <input type="text" class="form-control" placeholder="Imię">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Nazwisko</span>
+          <input type="text" class="form-control" placeholder="Nazwisko">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Indeks</span>
+          <input type="text" class="form-control" placeholder="Indeks">
+        </div>
+    </div>
+
+
+    <div class="contact-inputs">
+        <h2>Dane kontaktowe</h2>
+        <div class="input-group">
+          <span class="input-group-addon">Numer telefonu</span>
+          <input type="text" class="form-control" placeholder="Numer telefonu">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Miasto</span>
+          <input type="text" class="form-control" placeholder="Miasto">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Ulica</span>
+          <input type="text" class="form-control" placeholder="Ulica">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Kod pocztowy</span>
+          <input type="text" class="form-control" placeholder="Kod pocztowy">
+        </div>
+    </div>
+{% endblock %}
