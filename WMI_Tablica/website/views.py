@@ -2,6 +2,7 @@
 
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
+from website.models import *
 # Create your views here.
 
 def index(request):
@@ -43,4 +44,14 @@ def published_ads(request):
     return render_to_response('watching_ads.html')
 
 def new_ad(request):
-    return render_to_response('new_ad.html')
+	if request.POST:
+	    form = OgloszenieForm(request.POST)
+	    if form.is_valid():
+	        form.save()
+	        return render(request, 'new_ad.html', {'form' : ogloszenie_form, 'message_true': 'Ogłoszenie dodano'})
+	    else:
+			ogloszenie_form = OgloszenieForm()
+            return render_to_response('new_ad.html', {'form' : ogloszenie_form, 'message_error': 'Wypełnij poprawnie wszystkie pola'})
+	else:
+		ogloszenie_form = OgloszenieForm()
+		return render(request, 'new_ad.html', {'form' : ogloszenie_form})
