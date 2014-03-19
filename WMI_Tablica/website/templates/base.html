@@ -31,13 +31,14 @@
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
+            {% block "header" %}
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Tablica WMI</a>
+          <a class="navbar-brand" href="/login">Tablica WMI</a>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Szukaj">
@@ -66,6 +67,7 @@
             </li>
             <li><a href="/watching_ads"><span class="glyphicon glyphicon-eye-open"></span>Obserwowane ogłoszenia</a></li>
           </ul>
+          {% endblock %}
         </div><!--/.nav-collapse -->
       </div>
     </div>

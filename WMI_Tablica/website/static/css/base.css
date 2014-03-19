@@ -47,4 +47,8 @@ body > .container {
     display: inline-block;
 }
 
+.login-form {
+    max-width: 300px;
+}
+
 

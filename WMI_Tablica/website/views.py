@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
 from website.models import *
 # Create your views here.
+
+
+def login(request):
+    if request.POST:
+        return redirect('/')
+    else:
+        form = UserForm()
+        return render(request, 'login.html', {'form' : form})
 
 def index(request):
     ad = """
@@ -32,7 +40,6 @@ def index(request):
     """
     ads_list = [ad, ad, ad]
     return render_to_response('index.html', {'ads_list' : ads_list})
-
 
 def edit_personal_data(request):
     return render_to_response('edit_personal_data.html')

@@ -1,6 +1,12 @@
 from django.db import models
-from django.forms import ModelForm
+from django.forms import ModelForm, PasswordInput, CharField
 # Create your models here.
+
+
+class User(models.Model):
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=200)
+
 class Ogloszenie(models.Model):
     Kategoria1 = 'K1'
     Kategoria2 = 'K2'
@@ -21,6 +27,12 @@ class Ogloszenie(models.Model):
     tresc = models.TextField(max_length=500)
     photo = models.ImageField(upload_to='cars')
 
+
+class UserForm(ModelForm):
+    password = CharField(widget=PasswordInput())
+    class Meta:
+        model = User
+
 class OgloszenieForm(ModelForm):
-	class Meta:
+    class Meta:
 		model = Ogloszenie
