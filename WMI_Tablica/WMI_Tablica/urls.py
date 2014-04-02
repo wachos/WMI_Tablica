@@ -15,5 +15,5 @@ urlpatterns = patterns('',
     url(r'^watching_ads$', views.watching_ads, name='watching_ads'),
     url(r'^published_ads$', views.published_ads, name='published_ads'),
     url(r'^new_ad$', views.new_ad, name='new_ad'),
-    url(r'^login$', views.login, name='login')
+    url(r'^login$', views.login, name='login'),
 )

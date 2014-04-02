@@ -52,13 +52,13 @@ def published_ads(request):
 
 def new_ad(request):
 	if request.POST:
-	    form = OgloszenieForm(request.POST)
-	    if form.is_valid():
-	        form.save()
+	    ogloszenie_form = OgloszenieForm(request.POST)
+	    if ogloszenie_form.is_valid():
+	        ogloszenie_form.save()
 	        return render(request, 'new_ad.html', {'form' : ogloszenie_form, 'message_true': 'Ogłoszenie dodano'})
 	    else:
 			ogloszenie_form = OgloszenieForm()
-            return render_to_response('new_ad.html', {'form' : ogloszenie_form, 'message_error': 'Wypełnij poprawnie wszystkie pola'})
+            return render('new_ad.html', {'form' : ogloszenie_form, 'message_error': 'Wypełnij poprawnie wszystkie pola'})
 	else:
 		ogloszenie_form = OgloszenieForm()
 		return render(request, 'new_ad.html', {'form' : ogloszenie_form})

@@ -25,7 +25,7 @@ class Ogloszenie(models.Model):
     data_publikacji = models.DateField()
     tytul = models.CharField(max_length=200)
     tresc = models.TextField(max_length=500)
-    photo = models.ImageField(upload_to='cars')
+    #photo = models.ImageField(upload_to='cars')
 
 
 class UserForm(ModelForm):
