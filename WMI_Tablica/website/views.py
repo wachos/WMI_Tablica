@@ -2,17 +2,34 @@
 
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from website.models import *
 # Create your views here.
 
 
-def login(request):
+def login_page(request):
     if request.POST:
-        return redirect('/')
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username = username, password = password)
+        
+        if user:
+            login(request, user)
+            return redirect('/')
+        else:
+            form = UserForm()
+            return render(request, 'login.html', {'form' : form})
     else:
         form = UserForm()
         return render(request, 'login.html', {'form' : form})
 
+@login_required
+def logout_page(request):
+    logout(request)
+    return redirect('')
+    
+@login_required
 def index(request):
     ad = """
     <div class="panel panel-default">
