@@ -39,12 +39,10 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/login">Tablica WMI</a>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Szukaj">
-            </div>
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-          </form> 
+	<form action="/search/" method="get">
+        <input type="text" class="form-control" placeholder="Szukaj" name="q">
+        <input type="submit" class="btn btn-default" value="Szukaj">
+    	</form>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

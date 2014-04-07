@@ -17,4 +17,6 @@ urlpatterns = patterns('',
     url(r'^new_ad$', views.new_ad, name='new_ad'),
     url(r'^login$', views.login_page, name='login_page'),
     url(r'^logout$', views.logout_page, name='logout_page'),
+    (r'^search-form/$', views.search_form),
+    (r'^search/$', views.search)
 )
