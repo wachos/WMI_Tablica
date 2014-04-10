@@ -27,7 +27,15 @@ class Ogloszenie(models.Model):
     tresc = models.TextField(max_length=500)
     #photo = models.ImageField(upload_to='cars')
 
+class EditPassword(models.Model):
+    old_password = models.CharField(max_length=50)
+    new_password = models.CharField(max_length=50)
+    repeat_new_password = models.CharField(max_length=50)
 
+class EditPasswordForm(ModelForm):
+    class Meta:
+        model = EditPassword
+        
 class UserForm(ModelForm):
     password = CharField(widget=PasswordInput())
     class Meta:
