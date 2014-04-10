@@ -7,34 +7,31 @@
 <p>Szukasz: <strong>{{ query }}</strong></p>
 
 {% if ogloszenia %}
-    <p>Znalazłeś {{ ogloszenia|length }} ogloszeń.</p>
+    <div class="alert alert-success">Znalazłeś {{ ogloszenia|length }} ogloszeń.</div>
     <ul>
         {% for ogloszenie in ogloszenia %}
-	<div class="panel panel-default">
- 		<div class="panel-heading">
-    			<h3 class="panel-title">{{ ogloszenie.tytul }}</h3>
-  		</div>
-		<div class="panel-body">
-			<div class="ad-text">
-				<p>
-				    <a href="#" class="thumbnail">
-					<img src="../static/images/1.jpg" alt="...">
-				    </a>
-				    {{ ogloszenie.tresc }}
-				</p>
-			</div>
-		</div>
-  		<div class="panel-footer">
-    			<div class="ad-date">Data dodania: <b>{{ ogloszenie.data_publikacji }}</b></div>
-    			<div class="btn-group pull-right">
-      				<button type="button" class="btn btn-default">Więcej</button>
-      				<button type="button" class="btn btn-default">Obserwuj</button>
-    			</div>
-  		</div>
-	</div>
+	<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ogloszenie.tytul|upper}}&nbsp;({{ogloszenie.kategoria}})</h3>
+  </div>
+  <div class="panel-body">
+    <div class="ad-text">
+        <p>
+            {{ogloszenie.tresc|safe|truncatewords:10}}
+        </p>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="ad-date">Data dodania: <b>{{ogloszenie.data_publikacji}}</b></div>
+    <div class="btn-group pull-right">
+      <a href='ogloszenia' class="btn btn-primary" role="button">Więcej</a>
+      <a href="#" class="btn btn-default" role="button">Obseruj</a>
+    </div>
+  </div>
+</div>   
         {% endfor %}
     </ul>
 {% else %}
-    <p>Nie znaleziono ogłoszeń.</p>
+    <div class="alert alert-danger">Nie znaleziono ogłoszeń.</div>
 {% endif %}
 {% endblock %}
