@@ -29,7 +29,7 @@ def logout_page(request):
     logout(request)
     return redirect('')
     
-@login_required
+
 def index(request):
     all_entries = Ogloszenie.objects.all().order_by('-id')
     return render_to_response('index.html',{'pubb':all_entries})
@@ -54,6 +54,9 @@ def watching_ads(request):
 
 def published_ads(request):
     return render_to_response('watching_ads.html')
+    
+def edit_password(request):
+    return render_to_response('edit_password.html')
 
 def new_ad(request):
 	if request.POST:
@@ -67,3 +70,10 @@ def new_ad(request):
 	else:
 		ogloszenie_form = OgloszenieForm()
 		return render(request, 'new_ad.html', {'form' : ogloszenie_form})
+
+def edit_password(request):
+    if request.POST:
+        edit = EditPasswordForm(request.POST)
+    else:
+        edit = EditPasswordForm()
+        return render(request, 'edit_password.html', {'form' : edit})
