@@ -18,6 +18,6 @@ urlpatterns = patterns('',
     url(r'^edit_password$', views.edit_password, name='edit_password'),
     url(r'^login$', views.login_page, name='login_page'),
     url(r'^logout$', views.logout_page, name='logout_page'),
-    (r'^search-form/$', views.search_form),
-    (r'^search/$', views.search)
+    (r'^search/$', views.search),
+    (r'^search_by_title/$', views.search_by_title)
 )

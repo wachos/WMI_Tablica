@@ -37,8 +37,6 @@ def index(request):
 def edit_personal_data(request):
     return render_to_response('edit_personal_data.html')
 
-def search_form(request):
-    return render(request, 'search_form.html')
 
 def search(request):
     if 'q' in request.GET and request.GET['q']:
@@ -47,7 +45,13 @@ def search(request):
         return render(request, 'search_result.html',
             {'ogloszenia': ogloszenia, 'query': q})
     else:
-        return HttpResponse('Wpisz szukane słowo.')
+        return render(request, 'search_error.html')
+
+def search_by_title(request):
+        q = request.GET['q']
+        ogloszenia=Ogloszenie.objects.filter(tytul__icontains=q)
+        return render(request, 'search_result_by_title.html',
+            {'ogloszenia': ogloszenia, 'query': q})
     
 def watching_ads(request):
     return render_to_response('watching_ads.html')

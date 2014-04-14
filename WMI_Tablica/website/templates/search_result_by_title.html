@@ -4,18 +4,17 @@
 {% endblock %}
 
 {% block "content" %}
-	
 <p>Szukasz: <strong>{{ query }}</strong>
-	<form class="navbar-form navbar-right" action="/search_by_title/" method="get" role="search">
+	<form class="navbar-form navbar-right" action="/search/" method="get" role="search">
 		<div class="form-group">
 			<input type="hidden" class="form-control" placeholder="Szukaj" 					value="{{query}}" name="q" style="visible: false;">
 		</div>
 		<input type="submit" class="btn btn-default" value="Szukaj
-'{{query}}' przeszukując ogłoszenia po tytule">
-	</form>
-</p>
+'{{query}}' przeszukując ogłoszenia po treści">
+	</form></p>
 
 {% if ogloszenia %}
+
     <div class="alert alert-success">Znalazłeś {{ ogloszenia|length }} ogloszeń.</div>
     <ul>
         {% for ogloszenie in ogloszenia %}
@@ -41,7 +40,6 @@
         {% endfor %}
     </ul>
 {% else %}
-    <div class="alert alert-danger">Nie znaleziono ogłoszeń.
-</div>
+    <div class="alert alert-danger">Nie znaleziono ogłoszeń.</div>
 {% endif %}
 {% endblock %}
